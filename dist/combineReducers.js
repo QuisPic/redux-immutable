@@ -1,8 +1,19 @@
-import Immutable from 'immutable';
-import { getUnexpectedInvocationParameterMessage, validateNextState } from './utilities';
+'use strict';
 
-export default (function (reducers) {
-  var getDefaultState = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Immutable.Map;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _immutable = require('immutable');
+
+var _immutable2 = _interopRequireDefault(_immutable);
+
+var _utilities = require('./utilities');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+exports.default = function (reducers) {
+  var getDefaultState = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : _immutable2.default.Map;
 
   var reducerKeys = Object.keys(reducers);
 
@@ -13,7 +24,7 @@ export default (function (reducers) {
 
     // eslint-disable-next-line no-process-env
     if (process.env.NODE_ENV !== 'production') {
-      var warningMessage = getUnexpectedInvocationParameterMessage(inputState, reducers, action);
+      var warningMessage = (0, _utilities.getUnexpectedInvocationParameterMessage)(inputState, reducers, action);
 
       if (warningMessage) {
         // eslint-disable-next-line no-console
@@ -27,12 +38,13 @@ export default (function (reducers) {
         var currentDomainState = temporaryState.get(reducerName);
         var nextDomainState = reducer(currentDomainState, action);
 
-        validateNextState(nextDomainState, reducerName, action);
+        (0, _utilities.validateNextState)(nextDomainState, reducerName, action);
 
         temporaryState.set(reducerName, nextDomainState);
       });
     });
   };
-});
+};
+
 module.exports = exports['default'];
 //# sourceMappingURL=combineReducers.js.map

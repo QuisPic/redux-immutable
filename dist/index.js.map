@@ -1,1 +1,1 @@
-{"version":3,"sources":["../src/index.js"],"names":["combineReducers"],"mappings":"6BAA4B,mB;6BAArBA,e","file":"index.js","sourcesContent":["export combineReducers from './combineReducers';\n"]}
+{"version":3,"sources":["../src/index.js"],"names":["combineReducers"],"mappings":";;;;;;;;;;;;;QAAOA,e","file":"index.js","sourcesContent":["export combineReducers from './combineReducers';\n"]}
