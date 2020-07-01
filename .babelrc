@@ -2,23 +2,14 @@
   "env": {
     "development": {
       "plugins": [
-        "flow-runtime",
-        "syntax-flow",
+        /* "flow-runtime", */ "syntax-flow",
         "transform-flow-strip-types"
       ]
     },
     "production": {
-      "plugins": [
-        "syntax-flow",
-        "transform-flow-strip-types"
-      ]
+      "plugins": ["syntax-flow", "transform-flow-strip-types"]
     }
   },
-  "plugins": [
-    "add-module-exports"
-  ],
-  "presets": [
-    "es2015",
-    "stage-0"
-  ]
+  "plugins": ["add-module-exports"],
+  "presets": [["es2015", { "modules": false }], "stage-0"]
 }
